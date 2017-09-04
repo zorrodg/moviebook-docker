@@ -1,0 +1,24 @@
+{
+    "name": "app",
+    "version": "0.0.0",
+    "license": "UNLICENSED",
+    "scripts": {
+        "dev": "nuxt",
+        "start": "nuxt build && nuxt start",
+        "docker:build": "docker image build -t app .",
+        "docker:start": "docker container run -it --rm -p 3000:3000 --env-file .env app",
+        "docker:dev": "docker container run -it --rm -p 3000:3000 -v $(pwd)/app:/usr/src/app -v $(pwd)/nuxt.config.js:/usr/src/nuxt.config.js -e \"nodeCmd=dev\" --env-file .env app"
+    },
+    "dependencies": {
+        "@nuxtjs/proxy": "^1.1.1",
+        "axios": "^0.16.2",
+        "localforage": "^1.5.0",
+        "lodash.debounce": "^4.0.8",
+        "moment": "^2.18.1",
+        "nuxt": "^1.0.0-rc8",
+        "stylus-loader": "^3.0.1",
+        "stylus": "^0.54.5",
+        "vuetify": "^0.15.1",
+        "xml2js": "^0.4.19"
+    }
+}
