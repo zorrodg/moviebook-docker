@@ -27,7 +27,7 @@ Instructions
 4. Run docker image pointing to app files
 
     ```bash
-    docker container run -it --rm -p 3000:3000 app
+    docker container run -it --rm -p 3000:3000 --env-file .env app
     ```
 
     or
@@ -44,7 +44,7 @@ Development
 Run the container binding the local folder for getting changes
 
 ```bash
-docker container run -it --rm -p 3000:3000 -v $(pwd)/app:/usr/src/app -e "nodeCmd=dev" app
+docker container run -it --rm -p 3000:3000 -v $(pwd)/app:/usr/src/app -e "nodeCmd=dev" --env-file .env app
 ```
 
 or
