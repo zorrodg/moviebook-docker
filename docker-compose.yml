@@ -9,6 +9,8 @@ services:
             - static:/usr/src/static
         networks:
             - webnet
+        env_file:
+            - ./moviebook/.env
     static:
         build:
             context: "static"
