@@ -1,0 +1,27 @@
+version: "3"
+services:
+    moviebook:
+        build:
+            context: "./moviebook"
+            dockerfile: "Dockerfile"
+        expose: [ "3000" ]
+        volumes:
+            - static:/usr/src/static
+        networks:
+            - webnet
+    static:
+        build:
+            context: "static"
+            dockerfile: "Dockerfile"
+        ports:
+            - "8080:80"
+        volumes:
+            - static:/usr/share/nginx/html
+        links:
+            - "moviebook"
+        networks:
+            - webnet
+networks:
+    webnet:
+volumes:
+    static: {}

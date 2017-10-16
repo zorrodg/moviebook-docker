@@ -12,4 +12,9 @@ EXPOSE 3000
 ENV HOST 0.0.0.0
 ENV nodeCmd start
 
+RUN yarn run build
+RUN mkdir static
+RUN cp -R .nuxt/dist/* static/
+
 ENTRYPOINT yarn run $nodeCmd
+

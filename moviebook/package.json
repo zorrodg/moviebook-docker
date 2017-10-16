@@ -4,7 +4,8 @@
     "license": "UNLICENSED",
     "scripts": {
         "dev": "nuxt",
-        "start": "nuxt build && nuxt start",
+        "build": "nuxt build",
+        "start": "nuxt start",
         "docker:build": "docker image build -t app .",
         "docker:start": "docker container run -it --rm -p 3000:3000 --env-file .env app",
         "docker:dev": "docker container run -it --rm -p 3000:3000 -v $(pwd)/app:/usr/src/app -v $(pwd)/nuxt.config.js:/usr/src/nuxt.config.js -e \"nodeCmd=dev\" --env-file .env app"
